@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bkljevpwukip6"]
+
+[ext_resource type="Script" uid="uid://6u8t1dkvi2qw" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ckmdijjxty0o0" path="res://player.tscn" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(480, 100)
+
+[node name="Main" type="Node2D" unique_id=1910777052]
+script = ExtResource("1_0xm2m")
+
+[node name="Background" type="ColorRect" parent="." unique_id=49135327]
+offset_right = 480.0
+offset_bottom = 854.0
+color = Color(0.21052775, 0.45612204, 0.74810255, 1)
+
+[node name="Pipes" type="Node2D" parent="." unique_id=1331510948]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1244440614]
+position = Vector2(0, 754)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1848357316]
+position = Vector2(240, 50)
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=774145949]
+offset_right = 480.0
+offset_bottom = 100.0
+color = Color(0.1285418, 0.4515822, 0.339479, 1)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1909887162]
+wait_time = 1.6
+
+[node name="Player" parent="." unique_id=1392722875 instance=ExtResource("1_ig7tw")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=590663435]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=2011200144]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="UI" unique_id=1343280337]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1

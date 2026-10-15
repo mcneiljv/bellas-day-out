@@ -1,57 +1,20 @@
-[gd_scene format=3 uid="uid://bkljevpwukip6"]
+[gd_scene format=3 uid="uid://ckmdijjxty0o0"]
 
 [ext_resource type="Texture2D" uid="uid://b8hmd2licl4fc" path="res://assets/ufo-guy.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://8dtxus5p65t6" path="res://player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://bqpyhh0rw2udr" path="res://icon.svg" id="3_i3pqv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(480, 100)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2hs0m"]
 radius = 39.012817
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(362, 127)
-
-[node name="Main" type="Node2D" unique_id=1910777052]
-
-[node name="Background" type="ColorRect" parent="." unique_id=49135327]
-offset_right = 480.0
-offset_bottom = 854.0
-color = Color(0.21052775, 0.45612204, 0.74810255, 1)
-
-[node name="Ground" type="StaticBody2D" parent="." unique_id=1244440614]
-position = Vector2(0, 754)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1848357316]
-position = Vector2(240, 50)
-shape = SubResource("RectangleShape2D_i3pqv")
-
-[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=774145949]
-offset_right = 480.0
-offset_bottom = 100.0
-color = Color(0.1285418, 0.4515822, 0.339479, 1)
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=429487559]
+[node name="Player" type="CharacterBody2D" unique_id=1392722875]
 script = ExtResource("1_i3pqv")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=690505257]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2080988014]
 texture_filter = 1
-position = Vector2(214.00002, 320)
+position = Vector2(120, 400)
 scale = Vector2(3, 3)
 texture = ExtResource("1_4flbx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=735032906]
-position = Vector2(214, 319)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1133337533]
+position = Vector2(120, 399)
 shape = SubResource("CircleShape2D_2hs0m")
-
-[node name="Godot Logo Platform" type="StaticBody2D" parent="." unique_id=1534698011]
-
-[node name="Sprite2D" type="Sprite2D" parent="Godot Logo Platform" unique_id=2048332652]
-position = Vector2(301.5, 421)
-scale = Vector2(2.8203123, 1)
-texture = ExtResource("3_i3pqv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Godot Logo Platform" unique_id=1361654540]
-position = Vector2(300, 420.5)
-shape = SubResource("RectangleShape2D_hqtel")
