@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lo-fi Liftoff"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=480
 window/size/viewport_height=854
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Lo-fi Liftoff"
 
 [input]
 
