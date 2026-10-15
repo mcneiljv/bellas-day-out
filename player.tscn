@@ -1,29 +1,34 @@
 [gd_scene format=3 uid="uid://bkljevpwukip6"]
 
-[ext_resource type="Texture2D" uid="uid://b8hmd2licl4fc" path="res://ufo-guy.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://b8hmd2licl4fc" path="res://assets/ufo-guy.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://8dtxus5p65t6" path="res://player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bqpyhh0rw2udr" path="res://icon.svg" id="3_i3pqv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
-radius = 23.0
-height = 52.0
+radius = 34.0
+height = 76.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(362, 127)
 
-[node name="Node2D" type="Node2D" unique_id=1910777052]
+[node name="Main" type="Node2D" unique_id=1910777052]
+
+[node name="Background" type="ColorRect" parent="." unique_id=49135327]
+offset_right = 480.0
+offset_bottom = 854.0
+color = Color(0.21052775, 0.45612204, 0.74810255, 1)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=429487559]
 script = ExtResource("1_i3pqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=690505257]
 texture_filter = 1
-position = Vector2(301, 266)
-scale = Vector2(2, 2)
+position = Vector2(214.00002, 320)
+scale = Vector2(3, 3)
 texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=735032906]
-position = Vector2(301, 265)
+position = Vector2(214, 318)
 shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1534698011]
