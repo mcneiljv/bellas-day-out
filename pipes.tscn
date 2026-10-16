@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b2f82kp142wbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slirq"]
+size = Vector2(80, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jitf8"]
+size = Vector2(10, 200)
+
+[node name="Pipes" type="Node2D" unique_id=44458212]
+
+[node name="TopPipe" type="Area2D" parent="." unique_id=341178800]
+position = Vector2(0, -450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe" unique_id=487673497]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_slirq")
+
+[node name="ColorRect" type="ColorRect" parent="TopPipe" unique_id=42423609]
+offset_left = -40.0
+offset_top = -350.0
+offset_right = 40.0
+offset_bottom = 350.0
+color = Color(0.30980393, 1, 0.35686275, 1)
+
+[node name="BottomPipe" type="Area2D" parent="." unique_id=1404588167]
+position = Vector2(0, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe" unique_id=913553640]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_slirq")
+
+[node name="ColorRect" type="ColorRect" parent="BottomPipe" unique_id=1903123891]
+offset_left = -40.0
+offset_top = -350.0
+offset_right = 40.0
+offset_bottom = 350.0
+color = Color(0.30980393, 1, 0.35686275, 1)
+
+[node name="ScoreZone" type="Area2D" parent="." unique_id=318989339]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreZone" unique_id=1589139032]
+shape = SubResource("RectangleShape2D_jitf8")
