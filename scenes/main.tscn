@@ -9,6 +9,10 @@ size = Vector2(480, 100)
 [node name="Main" type="Node2D" unique_id=1910777052]
 script = ExtResource("1_0xm2m")
 
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1613418411]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1266715497]
+
 [node name="Background" type="ColorRect" parent="." unique_id=49135327]
 offset_right = 480.0
 offset_bottom = 854.0
