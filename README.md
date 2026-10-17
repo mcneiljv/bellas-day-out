@@ -1,7 +1,9 @@
 <!-- Add proper contents to markdown file -->
-# Lo-fi Liftoff
+# Bella Takes Off
 
 A one-button, Flappy Bird-style arcade game built with Godot 4 and GDScript. Left-click or press Space to flap, thread the gaps between the pipes, and beat your best score.
+
+Inspired by Bella, my dachshund, who proves every day that a very long dog with very short legs can still reach for the sky. 🐕✨
 
 **[Play it in your browser on itch.io](https://YOUR-USERNAME.itch.io/YOUR-GAME)**
 
