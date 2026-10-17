@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity.y = minf(velocity.y + gravity * delta, max_fall_speed)
 	move_and_slide()
+	$Sprite2D.rotation = clampf(velocity.y / 900.0, -0.5, 1)
 
 	# Don't let the player escape through the top of the screen.
 	if position.y < 0.0:
