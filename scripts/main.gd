@@ -18,10 +18,12 @@ const GAP_CENTER_MAX := 570.0
 ## Which phase the game is in. Changed only by `start_game()` and `game_over()`.
 var state: State = State.READY
 var can_restart := false
+var score := 0
 
 ## The player. Used to flap, start, and kill it, and to listen for its `crashed` signal.
 @onready var player: Player = $Player
 @onready var message_label: Label = $UI/MessageLabel
+@onready var score_label: Label = $UI/ScoreLabel
 @onready var pipes: Node2D = $Pipes
 @onready var spawn_timer: Timer = $SpawnTimer
 
@@ -62,8 +64,15 @@ func game_over() -> void:
 	await get_tree().create_timer(0.6).timeout
 	can_restart = true
 	
+func _on_pipe_scored() -> void:
+	if state != State.PLAYING:
+		return
+	score += 1
+	score_label.text = str(score)
+	
 func spawn_pipe() -> void:
 	var pipe: Pipe = PIPE_SCENE.instantiate()
 	pipe.position = Vector2(PIPE_SPAWN_X, randf_range(GAP_CENTER_MIN, GAP_CENTER_MAX))
 	pipe.hit.connect(game_over)
+	pipe.scored.connect(_on_pipe_scored)
 	pipes.add_child(pipe)

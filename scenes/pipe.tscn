@@ -42,6 +42,9 @@ color = Color(0.30980393, 1, 0.35686275, 1)
 shape = SubResource("RectangleShape2D_slirq")
 
 [node name="ScoreZone" type="Area2D" parent="." unique_id=318989339]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreZone" unique_id=1589139032]
+visible = false
 shape = SubResource("RectangleShape2D_jitf8")
