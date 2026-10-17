@@ -1,11 +1,28 @@
-extends Node
+class_name Pipe
+extends Node2D
+
+signal hit
+signal scored
+
+@export var speed: float = 200.0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	add_to_group("pipes")
+	$TopPipe.body_entered.connect(_on_hazard_body_entered)
+	$BottomPipe.body_entered.connect(_on_hazard_body_entered)
+	$ScoreZone.body_entered.connect(_on_score_zone_body_entered)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	position.x -= speed * delta
+	if position.x < -100.0:
+		queue_free()
+
+
+func _on_hazard_body_entered(body: Node2D) -> void:
+	hit.emit()
+
+
+func _on_score_zone_body_entered(_body: Node2D) -> void:
+	scored.emit()
