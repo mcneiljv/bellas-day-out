@@ -1,21 +1,18 @@
 [gd_scene format=3 uid="uid://ckmdijjxty0o0"]
 
-[ext_resource type="Texture2D" uid="uid://b8hmd2licl4fc" path="res://assets/ufo-guy.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://8dtxus5p65t6" path="res://scripts/player.gd" id="1_i3pqv"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2hs0m"]
-radius = 39.012817
+[ext_resource type="Texture2D" uid="uid://bul6em50h1ws4" path="res://assets/dachshund.png" id="2_g2els"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1392722875]
 collision_layer = 2
 script = ExtResource("1_i3pqv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1133337533]
-visible = false
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_2hs0m")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2080988014]
 texture_filter = 1
-scale = Vector2(3, 3)
-texture = ExtResource("1_4flbx")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_g2els")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=316431182]
+visible = false
+scale = Vector2(2.5, 2.5)
+polygon = PackedVector2Array(3, -13.5, 0.29999924, -11.5, -1.2000008, -3.3999996, -13.1, -2.5, -17.5, -2.5, -19.5, 4.5, -19, 9.299999, -19, 12.4, -7.3, 7.8999996, 6.799999, 11.5, 9.1, 11.5, 12.099998, 6.5, 12.200001, -1, 21, -2.8999996, 21, -6.2, 15, -13.3)

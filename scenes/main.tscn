@@ -12,7 +12,7 @@ script = ExtResource("1_0xm2m")
 [node name="Background" type="ColorRect" parent="." unique_id=49135327]
 offset_right = 480.0
 offset_bottom = 854.0
-color = Color(0.21052775, 0.45612204, 0.74810255, 1)
+color = Color(0.5137255, 0.7019608, 0.9411765, 1)
 
 [node name="Pipes" type="Node2D" parent="." unique_id=156060983]
 
@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_i3pqv")
 [node name="ColorRect" type="ColorRect" parent="Ground" unique_id=774145949]
 offset_right = 480.0
 offset_bottom = 100.0
-color = Color(0.1285418, 0.4515822, 0.339479, 1)
+color = Color(0.21193036, 0.69383967, 0.5303317, 1)
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1909887162]
 wait_time = 1.6

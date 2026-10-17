@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8hmd2licl4fc"
-path="res://.godot/imported/ufo-guy.png-90db23183d172a6f5b34fdd38e50e753.ctex"
+uid="uid://bul6em50h1ws4"
+path="res://.godot/imported/dachshund.png-59efa71648a20da6d120ed4ac5e2c19c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ufo-guy.png"
-dest_files=["res://.godot/imported/ufo-guy.png-90db23183d172a6f5b34fdd38e50e753.ctex"]
+source_file="res://assets/dachshund.png"
+dest_files=["res://.godot/imported/dachshund.png-59efa71648a20da6d120ed4ac5e2c19c.ctex"]
 
 [params]
 

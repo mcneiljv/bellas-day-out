@@ -21,7 +21,7 @@ offset_left = -40.0
 offset_top = -350.0
 offset_right = 40.0
 offset_bottom = 350.0
-color = Color(0.30980393, 1, 0.35686275, 1)
+color = Color(0, 0.5856355, 0.11355107, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe" unique_id=487673497]
 shape = SubResource("RectangleShape2D_slirq")
@@ -36,7 +36,7 @@ offset_left = -40.0
 offset_top = -350.0
 offset_right = 40.0
 offset_bottom = 350.0
-color = Color(0.30980393, 1, 0.35686275, 1)
+color = Color(0, 0.58431375, 0.11372549, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe" unique_id=913553640]
 shape = SubResource("RectangleShape2D_slirq")
