@@ -10,11 +10,11 @@ radius = 39.012817
 collision_layer = 2
 script = ExtResource("1_i3pqv")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1133337533]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_2hs0m")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2080988014]
 texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("1_4flbx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1133337533]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_2hs0m")
