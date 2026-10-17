@@ -30,7 +30,6 @@ func _ready() -> void:
 	message_label.text = "Tap or press Space to start"
 	spawn_timer.timeout.connect(spawn_pipe)
 
-
 func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("jump"):
 		return
@@ -43,7 +42,6 @@ func _input(event: InputEvent) -> void:
 			if can_restart:
 				get_tree().reload_current_scene()
 
-
 func start_game() -> void:
 	state = State.PLAYING
 	message_label.hide()
@@ -51,7 +49,6 @@ func start_game() -> void:
 	player.flap()
 	spawn_pipe()
 	spawn_timer.start()
-
 
 func game_over() -> void:
 	if state == State.GAME_OVER:
