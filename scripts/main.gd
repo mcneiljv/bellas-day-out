@@ -10,10 +10,13 @@ enum State {
 	GAME_OVER,
 }
 
+# NOTE: Controls difficulty scaling
 const BASE_SPEED := 200.0
+# NOTE: If difficulty curve is too high, lower MAX_SPEED first
 const MAX_SPEED := 360.0
 const BASE_INTERVAL := 1.6
 const MIN_INTERVAL := 1.0
+
 const PIPE_SCENE: PackedScene = preload("res://scenes/pipe.tscn")
 const PIPE_SPAWN_X := 540.0
 const GAP_CENTER_MIN := 180.0
