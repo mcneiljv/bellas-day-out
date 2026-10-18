@@ -10,6 +10,10 @@ enum State {
 	GAME_OVER,
 }
 
+const BASE_SPEED := 200.0
+const MAX_SPEED := 360.0
+const BASE_INTERVAL := 1.6
+const MIN_INTERVAL := 1.0
 const PIPE_SCENE: PackedScene = preload("res://scenes/pipe.tscn")
 const PIPE_SPAWN_X := 540.0
 const GAP_CENTER_MIN := 180.0
@@ -75,6 +79,7 @@ func _on_pipe_scored() -> void:
 		return
 	score += 1
 	score_label.text = str(score)
+	spawn_timer.wait_time = maxf(MIN_INTERVAL, BASE_INTERVAL - score * 0.02)
 
 func set_background_scroll(on: bool) -> void:
 	for layer: Parallax2D in layer_speeds:
@@ -83,6 +88,7 @@ func set_background_scroll(on: bool) -> void:
 func spawn_pipe() -> void:
 	var pipe: Pipe = PIPE_SCENE.instantiate()
 	pipe.position = Vector2(PIPE_SPAWN_X, randf_range(GAP_CENTER_MIN, GAP_CENTER_MAX))
+	pipe.speed = minf(BASE_SPEED + score * 4.0, MAX_SPEED)
 	pipe.hit.connect(game_over)
 	pipe.scored.connect(_on_pipe_scored)
 	pipes.add_child(pipe)
