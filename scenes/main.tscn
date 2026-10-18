@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://6u8t1dkvi2qw" path="res://scripts/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ckmdijjxty0o0" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://ds6sfmhix7twv" path="res://assets/back.png" id="2_sugp2"]
-[ext_resource type="Texture2D" uid="uid://4mfypphmckwp" path="res://assets/middle.png" id="3_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://c4bqd1888gpsr" path="res://assets/foreground-empty.png" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c1r1flwqpt8ey" path="res://assets/parallax-skybox.png" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://fh0a0e2cplde" path="res://assets/parallax-forest-mid.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bfcqykb7uttoo" path="res://assets/parallax-forest-low.png" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dgtt1q0qbmwsj" path="res://assets/parallax-mountain-back.png" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://djpaogehxxisb" path="res://assets/parallax-tree-front.png" id="4_tbgi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(480, 100)
@@ -12,36 +14,63 @@ size = Vector2(480, 100)
 [node name="Main" type="Node2D" unique_id=1910777052]
 script = ExtResource("1_0xm2m")
 
-[node name="Back" type="Parallax2D" parent="." unique_id=1613418411 groups=["parallax_layers"]]
-repeat_size = Vector2(336, 0)
+[node name="Skybox" type="Parallax2D" parent="." unique_id=1613418411 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skybox" unique_id=1266715497]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("2_o6xl0")
+centered = false
+
+[node name="Mountains" type="Parallax2D" parent="." unique_id=846487306 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
 autoscroll = Vector2(-8, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Back" unique_id=1266715497]
-scale = Vector2(3, 3)
-texture = ExtResource("2_sugp2")
+[node name="Sprite2D" type="Sprite2D" parent="Mountains" unique_id=1302562619]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("3_tipki")
 centered = false
 
-[node name="Middle" type="Parallax2D" parent="." unique_id=266758134 groups=["parallax_layers"]]
-repeat_size = Vector2(768, 0)
-autoscroll = Vector2(-20, 0)
+[node name="MidForest" type="Parallax2D" parent="." unique_id=436169042 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-22, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Middle" unique_id=1761313288]
-position = Vector2(0, 38)
-scale = Vector2(3, 3)
-texture = ExtResource("3_jyhfs")
+[node name="Sprite2D" type="Sprite2D" parent="MidForest" unique_id=1868190146]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("2_tbgi4")
 centered = false
 
-[node name="Foreground" type="Parallax2D" parent="." unique_id=551972825 groups=["parallax_layers"]]
-repeat_size = Vector2(2064, 0)
+[node name="LowForest" type="Parallax2D" parent="." unique_id=266758134 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
 autoscroll = Vector2(-60, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Foreground" unique_id=1121567983]
-position = Vector2(-495, 38)
-scale = Vector2(3, 3)
-texture = ExtResource("4_tbgi4")
+[node name="Sprite2D" type="Sprite2D" parent="LowForest" unique_id=1761313288]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("3_tbgi4")
 centered = false
 
 [node name="Pipes" type="Node2D" parent="." unique_id=156060983]
+
+[node name="FrontTrees" type="Parallax2D" parent="." unique_id=551972825 groups=["parallax_layers"]]
+repeat_size = Vector2(960, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontTrees" unique_id=1121567983]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("4_tbgi4")
+centered = false
+
+[node name="Sprite2D Flipped" type="Sprite2D" parent="FrontTrees" unique_id=1410143192]
+position = Vector2(480, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("4_tbgi4")
+centered = false
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1244440614]
 visible = false
