@@ -11,25 +11,26 @@ enum State {
 }
 
 # NOTE: Controls difficulty scaling
-const BASE_SPEED := 200.0
+const BASE_SPEED: float = 200.0
 # NOTE: If difficulty curve is too high, lower MAX_SPEED first
-const MAX_SPEED := 360.0
-const BASE_INTERVAL := 1.6
-const MIN_INTERVAL := 1.0
+const MAX_SPEED: float = 360.0
+const BASE_INTERVAL: float = 1.6
+const MIN_INTERVAL: float = 1.0
 
 const PIPE_SCENE: PackedScene = preload("res://scenes/pipe.tscn")
-const PIPE_SPAWN_X := 540.0
-const GAP_CENTER_MIN := 180.0
-const GAP_CENTER_MAX := 616.0
+const PIPE_SPAWN_X: float = 540.0
+const GAP_CENTER_MIN: float = 180.0
+const GAP_CENTER_MAX: float = 616.0
 
 ## Which phase the game is in. Changed only by `start_game()` and `game_over()`.
 var state: State = State.READY
-var can_restart := false
-var score := 0
+var can_restart: bool = false
+var score: int = 0
 var layer_speeds: Dictionary = {}
 
 ## The player. Used to flap, start, and kill it, and to listen for its `crashed` signal.
 @onready var player: Player = $Player
+@onready var game_over_label: Label = $UI/GameOverLabel
 @onready var message_label: Label = $UI/MessageLabel
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var pipes: Node2D = $Pipes
@@ -72,7 +73,8 @@ func game_over() -> void:
 	get_tree().call_group("pipes", "set_physics_process", false)
 	set_background_scroll(false)
 	player.die()
-	message_label.text = "Game Over\nTap to restart"
+	game_over_label.text = "Game Over"
+	message_label.text = "Tap to restart"
 	message_label.show()
 	await get_tree().create_timer(0.6).timeout
 	can_restart = true
