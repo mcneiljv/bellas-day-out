@@ -20,7 +20,7 @@ const MIN_INTERVAL := 1.0
 const PIPE_SCENE: PackedScene = preload("res://scenes/pipe.tscn")
 const PIPE_SPAWN_X := 540.0
 const GAP_CENTER_MIN := 180.0
-const GAP_CENTER_MAX := 570.0
+const GAP_CENTER_MAX := 616.0
 
 ## Which phase the game is in. Changed only by `start_game()` and `game_over()`.
 var state: State = State.READY
