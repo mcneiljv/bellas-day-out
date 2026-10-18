@@ -12,7 +12,7 @@ size = Vector2(480, 100)
 [node name="Main" type="Node2D" unique_id=1910777052]
 script = ExtResource("1_0xm2m")
 
-[node name="Back" type="Parallax2D" parent="." unique_id=1613418411]
+[node name="Back" type="Parallax2D" parent="." unique_id=1613418411 groups=["parallax_layers"]]
 repeat_size = Vector2(336, 0)
 autoscroll = Vector2(-8, 0)
 
@@ -21,7 +21,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_sugp2")
 centered = false
 
-[node name="Middle" type="Parallax2D" parent="." unique_id=266758134]
+[node name="Middle" type="Parallax2D" parent="." unique_id=266758134 groups=["parallax_layers"]]
 repeat_size = Vector2(768, 0)
 autoscroll = Vector2(-20, 0)
 
@@ -31,7 +31,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_jyhfs")
 centered = false
 
-[node name="Foreground" type="Parallax2D" parent="." unique_id=551972825]
+[node name="Foreground" type="Parallax2D" parent="." unique_id=551972825 groups=["parallax_layers"]]
 repeat_size = Vector2(2064, 0)
 autoscroll = Vector2(-60, 0)
 

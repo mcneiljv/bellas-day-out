@@ -19,6 +19,7 @@ const GAP_CENTER_MAX := 570.0
 var state: State = State.READY
 var can_restart := false
 var score := 0
+var layer_speeds: Dictionary = {}
 
 ## The player. Used to flap, start, and kill it, and to listen for its `crashed` signal.
 @onready var player: Player = $Player
@@ -31,6 +32,9 @@ func _ready() -> void:
 	player.crashed.connect(game_over)
 	message_label.text = "Tap or press Space to start"
 	spawn_timer.timeout.connect(spawn_pipe)
+	for layer: Parallax2D in get_tree().get_nodes_in_group("parallax_layers"):
+		layer_speeds[layer] = layer.autoscroll
+		layer.autoscroll = Vector2.ZERO
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("jump"):
@@ -51,6 +55,7 @@ func start_game() -> void:
 	player.flap()
 	spawn_pipe()
 	spawn_timer.start()
+	set_background_scroll(true)
 
 func game_over() -> void:
 	if state == State.GAME_OVER:
@@ -58,6 +63,7 @@ func game_over() -> void:
 	state = State.GAME_OVER
 	spawn_timer.stop()
 	get_tree().call_group("pipes", "set_physics_process", false)
+	set_background_scroll(false)
 	player.die()
 	message_label.text = "Game Over\nTap to restart"
 	message_label.show()
@@ -69,7 +75,11 @@ func _on_pipe_scored() -> void:
 		return
 	score += 1
 	score_label.text = str(score)
-	
+
+func set_background_scroll(on: bool) -> void:
+	for layer: Parallax2D in layer_speeds:
+		layer.autoscroll = layer_speeds[layer] if on else Vector2.ZERO
+
 func spawn_pipe() -> void:
 	var pipe: Pipe = PIPE_SCENE.instantiate()
 	pipe.position = Vector2(PIPE_SPAWN_X, randf_range(GAP_CENTER_MIN, GAP_CENTER_MAX))
