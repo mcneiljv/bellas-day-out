@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bkljevpwukip6"]
+
+[ext_resource type="Script" uid="uid://6u8t1dkvi2qw" path="res://scripts/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ckmdijjxty0o0" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://c1r1flwqpt8ey" path="res://assets/parallax-skybox.png" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://fh0a0e2cplde" path="res://assets/parallax-forest-mid.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bfcqykb7uttoo" path="res://assets/parallax-forest-low.png" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dgtt1q0qbmwsj" path="res://assets/parallax-mountain-back.png" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://djpaogehxxisb" path="res://assets/parallax-tree-front.png" id="4_tbgi4"]
+[ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="8_85g3d"]
+[ext_resource type="FontFile" uid="uid://bwx0ydaspipqf" path="res://assets/fonts/DMSans_18pt-Bold.ttf" id="9_choun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(480, 54)
+
+[node name="Main" type="Node2D" unique_id=1910777052]
+script = ExtResource("1_0xm2m")
+
+[node name="Skybox" type="Parallax2D" parent="." unique_id=1613418411 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skybox" unique_id=1266715497]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("2_o6xl0")
+centered = false
+
+[node name="Mountains" type="Parallax2D" parent="." unique_id=846487306 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountains" unique_id=1302562619]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("3_tipki")
+centered = false
+
+[node name="MidForest" type="Parallax2D" parent="." unique_id=436169042 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-22, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MidForest" unique_id=1868190146]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("2_tbgi4")
+centered = false
+
+[node name="LowForest" type="Parallax2D" parent="." unique_id=266758134 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-60, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="LowForest" unique_id=1761313288]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("3_tbgi4")
+centered = false
+
+[node name="Pipes" type="Node2D" parent="." unique_id=156060983]
+
+[node name="FrontTrees" type="Parallax2D" parent="." unique_id=551972825 groups=["parallax_layers"]]
+repeat_size = Vector2(960, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontTrees" unique_id=1121567983]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("4_tbgi4")
+centered = false
+
+[node name="Sprite2D Flipped" type="Sprite2D" parent="FrontTrees" unique_id=1410143192]
+position = Vector2(480, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("4_tbgi4")
+centered = false
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1244440614]
+position = Vector2(0, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1848357316]
+visible = false
+position = Vector2(240, 27)
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1909887162]
+wait_time = 1.6
+
+[node name="Player" parent="." unique_id=1392722875 instance=ExtResource("1_ig7tw")]
+position = Vector2(120, 400)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=590663435]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=2011200144]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_85g3d")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="UI" unique_id=1343280337]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_85g3d")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="UI" unique_id=924739323]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_choun")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
