@@ -83,10 +83,16 @@ func _on_pipe_scored() -> void:
 	score += 1
 	score_label.text = str(score)
 	spawn_timer.wait_time = maxf(MIN_INTERVAL, BASE_INTERVAL - score * 0.02)
+	update_background_scroll_speed()
 
 func set_background_scroll(on: bool) -> void:
 	for layer: Parallax2D in layer_speeds:
 		layer.autoscroll = layer_speeds[layer] if on else Vector2.ZERO
+		
+func update_background_scroll_speed() -> void:
+	var factor := minf(BASE_SPEED + score * 4.0, MAX_SPEED) / BASE_SPEED
+	for layer: Parallax2D in layer_speeds:
+		layer.autoscroll = layer_speeds[layer] * factor
 
 func spawn_pipe() -> void:
 	var pipe: Pipe = PIPE_SCENE.instantiate()
