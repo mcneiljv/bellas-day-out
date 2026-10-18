@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Lo-fi Liftoff"
+config/name="Bella's Day Out"
 run/main_scene="uid://bkljevpwukip6"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
@@ -44,4 +44,5 @@ jump={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://6u8t1dkvi2qw" path="res://scripts/main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ckmdijjxty0o0" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://ds6sfmhix7twv" path="res://assets/back.png" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://4mfypphmckwp" path="res://assets/middle.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://c4bqd1888gpsr" path="res://assets/foreground-empty.png" id="4_tbgi4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(480, 100)
@@ -9,14 +12,34 @@ size = Vector2(480, 100)
 [node name="Main" type="Node2D" unique_id=1910777052]
 script = ExtResource("1_0xm2m")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1613418411]
+[node name="Back" type="Parallax2D" parent="." unique_id=1613418411]
+repeat_size = Vector2(336, 0)
+autoscroll = Vector2(-8, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1266715497]
+[node name="Sprite2D" type="Sprite2D" parent="Back" unique_id=1266715497]
+scale = Vector2(3, 3)
+texture = ExtResource("2_sugp2")
+centered = false
 
-[node name="Background" type="ColorRect" parent="." unique_id=49135327]
-offset_right = 480.0
-offset_bottom = 854.0
-color = Color(0.5137255, 0.7019608, 0.9411765, 1)
+[node name="Middle" type="Parallax2D" parent="." unique_id=266758134]
+repeat_size = Vector2(768, 0)
+autoscroll = Vector2(-20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Middle" unique_id=1761313288]
+position = Vector2(0, 38)
+scale = Vector2(3, 3)
+texture = ExtResource("3_jyhfs")
+centered = false
+
+[node name="Foreground" type="Parallax2D" parent="." unique_id=551972825]
+repeat_size = Vector2(2064, 0)
+autoscroll = Vector2(-60, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground" unique_id=1121567983]
+position = Vector2(-495, 38)
+scale = Vector2(3, 3)
+texture = ExtResource("4_tbgi4")
+centered = false
 
 [node name="Pipes" type="Node2D" parent="." unique_id=156060983]
 
