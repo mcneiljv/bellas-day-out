@@ -1,5 +1,5 @@
-<!-- Add proper contents to markdown file -->
-# Bella’s Zoomies
+<!-- TODO: Add proper contents to markdown file -->
+# Bella’s Day Out
 
 A one-button, Flappy Bird-style arcade game built with Godot 4 and GDScript. Left-click or press Space to flap, thread the gaps between the pipes, and beat your best score.
 
