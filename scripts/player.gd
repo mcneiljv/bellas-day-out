@@ -17,6 +17,7 @@ const MAX_TILT_DOWN: float = 1.0       # radians (about 57°): nose-down limit
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionPolygon2D = $CollisionPolygon2D
 @onready var jump_sound: AudioStreamPlayer2D = $Jump
+@onready var hit_sound: AudioStreamPlayer2D = $Hit
 
 var started := false
 var alive := true
@@ -33,6 +34,7 @@ func die() -> void:
 	if not alive:
 		return
 	alive = false
+	hit_sound.play()
 	# set_deferred because die() can be triggered from inside a physics callback.
 	collision_shape.set_deferred("disabled", true)
 	velocity.y = death_hop_velocity
