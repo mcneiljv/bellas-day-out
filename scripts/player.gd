@@ -16,6 +16,7 @@ const MAX_TILT_DOWN: float = 1.0       # radians (about 57°): nose-down limit
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionPolygon2D = $CollisionPolygon2D
+@onready var jump_sound: AudioStreamPlayer2D = $Jump
 
 var started := false
 var alive := true
@@ -26,6 +27,7 @@ func start() -> void:
 func flap() -> void:
 	if alive:
 		velocity.y = flap_velocity
+		jump_sound.play()
 
 func die() -> void:
 	if not alive:
