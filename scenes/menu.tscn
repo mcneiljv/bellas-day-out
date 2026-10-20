@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://drvlfedahabve"]
 
+[ext_resource type="Script" uid="uid://8rfs2xhk74h6" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_yqeox"]
 [ext_resource type="FontFile" uid="uid://bwx0ydaspipqf" path="res://assets/fonts/DMSans_18pt-Bold.ttf" id="2_vjb58"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_con2f")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1843907386]
 layout_mode = 1
