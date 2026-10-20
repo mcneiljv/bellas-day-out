@@ -1,30 +1,46 @@
-<!-- TODO: Add proper contents to markdown file -->
-# Bella’s Day Out
+# Bella's Day Out
 
-A one-button, Flappy Bird-style arcade game built with Godot 4 and GDScript. Left-click or press Space to flap, thread the gaps between the pipes, and beat your best score.
+A one-button, Flappy Bird-style arcade game built with Godot 4 and GDScript. Help Bella, a dachshund with short legs and big dreams, hop her way through the forest and thread the gaps between the bones.
 
 Inspired by Bella, my dachshund, who proves every day that a very long dog with very short legs can still reach for the sky. 🐕✨
 
+<!--TODO: Add itch.io link -->
 **[Play it in your browser on itch.io](https://YOUR-USERNAME.itch.io/YOUR-GAME)**
 
+<!--TODO: Add gameplay screenshot -->
 ![Gameplay screenshot](docs/screenshot.png)
+
+## Features
+
+- One-button gameplay: hop through bones with randomly placed gaps
+- Difficulty that ramps up as your score grows (faster bones, shorter spacing)
+- A five-layer parallax forest background that scrolls at different speeds for depth
+- Sound effects and looping music, with separate mute options for each
+- A title screen with the audio settings, and a way back to it from the game
+- A dramatic spin and fall off the screen when Bella crashes
+- Settings are saved between sessions
+- Runs in the browser through a web export
 
 ## Controls
 
 | Input | Action |
 | --- | --- |
-| Space, left mouse click, or tap | Start the game, flap, and restart after a game over |
+| Space, left mouse click, or tap | Start the game, hop, and restart after a game over |
+| **Menu** button or Esc (in game) | Return to the title screen |
+| Esc (on the title screen) | Quit the game (desktop only) |
+
+On the title screen, use **Play** to start and the **Mute SFX** and **Mute Music** checkboxes to silence either one. The Quit button is hidden in the web version, since a browser tab can't be closed by the game.
 
 ## Run it locally
 
 You need [Godot 4](https://godotengine.org/download) (built with 4.7; 4.3 or newer is required). Use the **standard** build, not the .NET build, because this project uses GDScript only.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/lo-fi-liftoff.git
+git clone https://github.com/mcneiljv/bellas-day-out.git
 ```
 
 1. Open Godot, click **Import**, and select the `project.godot` file in the cloned folder.
-2. Press **F5** to run. The main scene is `main.tscn`.
+2. Press **F5** to run. The game opens on the title screen (`menu.tscn`).
 
 ## How it works
 
@@ -32,15 +48,24 @@ The game is small enough to read in one sitting. The main pieces:
 
 | File | Role |
 | --- | --- |
-| `main.gd` | Game loop. Tracks the state (ready, playing, game over), handles input, spawns pipes on a timer, and keeps score. |
-| `player.gd` | The bird, a `CharacterBody2D`. Applies gravity, handles flapping, and emits `crashed` when it lands on the ground. |
+| `menu.gd` | Title screen. Starts the game, hosts the audio toggles, and handles quitting. |
+| `main.gd` | Game loop. Tracks the state (ready, playing, game over), handles input, spawns bones on a timer, keeps score, and returns to the menu. |
+| `player.gd` | Bella, a `CharacterBody2D`. Applies gravity, handles hopping, emits `crashed` on the ground, and plays the death spin. |
 | `pipe.gd` | A pipe pair. Scrolls left, frees itself off-screen, and emits `hit` and `scored` signals. |
+| `audio_settings.gd` | Autoload named `GameSettings`. Mutes the `SFX` and `Music` audio buses and saves the choices. |
+| `music_player.tscn` | Autoload named `MusicPlayer`. Plays the looping music so it carries through restarts and menu visits. |
 
 A few design choices worth knowing:
 
-- **Signals up, calls down.** The bird and pipes report events through signals, and `main.gd` decides what those events mean.
-- **Pipes are `Area2D`s, the ground is solid.** Touching a pipe ends the run through `body_entered`, while the bird lands on the ground through `move_and_slide()` and `is_on_floor()`.
-- **Collision layers.** The ground and world are on layer 1 and the bird is on layer 2. The pipes' masks only scan layer 2, so they react to the bird and ignore the ground.
+- **Signals up, calls down.** Bella and the bones report events through signals, and `main.gd` decides what those events mean.
+- **Bones are `Area2D`s, the ground is solid.** Touching a pipe ends the run through `body_entered`, while Bella lands on the ground through `move_and_slide()` and `is_on_floor()`.
+- **Collision layers.** The ground sits on layer 1 and the dachshund on layer 2. The bones only scan layer 2, so they react to the dachshund and ignore the ground.
+- **Gameplay input uses `_unhandled_input`.** UI buttons consume their own clicks first, so pressing Menu doesn't also make the dachshund hop.
+- **Audio buses.** Sound effects play on an `SFX` bus and music on a `Music` bus, so muting either is a single toggle with no per-sound code. The bus layout lives in `default_bus_layout.tres`.
+
+## Settings and saved data
+
+Mute choices are saved to `user://settings.cfg`. In the editor, **Project > Open User Data Folder** opens the folder that holds it. In a web build, the data is kept in the browser's storage, so it is per browser and device, and it is cleared if the player wipes site data.
 
 ## Exporting for the web
 
@@ -51,13 +76,18 @@ The web export requires the **Compatibility** renderer, which this project uses.
 3. Test locally with **Remote Debug > Run in Browser**. Web builds don't run from a double-clicked `index.html`.
 4. Zip the contents of the export folder, with `index.html` at the top level, and upload it to itch.io as an HTML project that is played in the browser.
 
-The export output is git-ignored, so build artifacts never end up in the repository.
+Browsers block audio until the player interacts with the page, so the music starts when **Play** is pressed. The export output is git-ignored, so build artifacts never end up in the repository.
 
 ## Credits
 
 - Built with [Godot Engine](https://godotengine.org/).
 - Gameplay inspired by *Flappy Bird*.
-- Art and audio: [add your sources here, or note that the game uses placeholder shapes].
+- Starring Bella, the dachshund. 🐾
+- Forest parallax background: [Parallax Forest by Bongseng](https://bongseng.itch.io/parallax-forest-desert-sky-moon).
+- Bone and character art by me.
+- Sound effects: Created by me with [jsfxr](https://sfxr.me/).
+<!-- TODO: Add music creds -->
+- Music: [track, artist, and license].
 
 ## License
 
