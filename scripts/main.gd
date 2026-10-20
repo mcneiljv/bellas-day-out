@@ -36,15 +36,8 @@ var layer_speeds: Dictionary = {}
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var pipes: Node2D = $Pipes
 @onready var spawn_timer: Timer = $SpawnTimer
-# TODO: Update these to target new location
-@onready var sfx_button: CheckBox = $UI/AudioButtons/SfxButton
-@onready var music_button: CheckBox = $UI/AudioButtons/MusicButton
 
 func _ready() -> void:
-	#sfx_button.set_pressed_no_signal(AudioSettings.sfx_muted)
-	#music_button.set_pressed_no_signal(AudioSettings.music_muted)
-	#sfx_button.toggled.connect(AudioSettings.set_sfx_muted)
-	#music_button.toggled.connect(AudioSettings.set_music_muted)
 	player.crashed.connect(game_over)
 	message_label.text = "Tap or press Space to start"
 	spawn_timer.timeout.connect(spawn_pipe)
