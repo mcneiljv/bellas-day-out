@@ -21,6 +21,8 @@ polygon = PackedVector2Array(3, -13.5, 0.29999924, -11.5, -1.2000008, -3.3999996
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=2128190468]
 stream = ExtResource("3_qhqgy")
+bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=1780360737]
 stream = ExtResource("4_dqkch")
+bus = &"SFX"

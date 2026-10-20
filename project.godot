@@ -14,6 +14,14 @@ config/name="Bella's Day Out"
 run/main_scene="uid://bkljevpwukip6"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://b7adjn361lvg8"
+
+[autoload]
+
+Music="*uid://hkghpu4vmlli"
+
 [display]
 
 window/size/viewport_width=480
