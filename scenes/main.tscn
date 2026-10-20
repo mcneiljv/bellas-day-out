@@ -132,19 +132,3 @@ theme_override_fonts/font = ExtResource("9_choun")
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioButtons" type="VBoxContainer" parent="UI" unique_id=1401875017]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="SfxButton" type="CheckBox" parent="UI/AudioButtons" unique_id=1548292904]
-layout_mode = 2
-text = "Mute SFX"
-
-[node name="MusicButton" type="CheckBox" parent="UI/AudioButtons" unique_id=1513938298]
-layout_mode = 2
-text = "Mute Music"
