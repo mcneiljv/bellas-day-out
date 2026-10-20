@@ -30,6 +30,7 @@ var layer_speeds: Dictionary = {}
 
 ## The player. Used to flap, start, and kill it, and to listen for its `crashed` signal.
 @onready var player: Player = $Player
+@onready var music: AudioStreamPlayer2D = $"/root/Music"
 @onready var game_over_label: Label = $UI/GameOverLabel
 @onready var message_label: Label = $UI/MessageLabel
 @onready var score_label: Label = $UI/ScoreLabel
@@ -64,6 +65,8 @@ func start_game() -> void:
 	spawn_pipe()
 	spawn_timer.start()
 	set_background_scroll(true)
+	if not music.playing:
+		music.play()
 
 func game_over() -> void:
 	if state == State.GAME_OVER:

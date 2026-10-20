@@ -6,5 +6,4 @@ loop = true
 
 [node name="Music" type="AudioStreamPlayer2D" unique_id=1610691443]
 stream = SubResource("AudioStreamMP3_05ggv")
-autoplay = true
 bus = &"Music"
