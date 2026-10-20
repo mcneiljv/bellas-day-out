@@ -132,3 +132,11 @@ theme_override_fonts/font = ExtResource("9_choun")
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="UI" unique_id=107043766]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 63.0
+offset_bottom = 41.0
+focus_mode = 0
+text = "Menu"
