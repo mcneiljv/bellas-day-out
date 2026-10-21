@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Bella's Day Out"
-run/main_scene="uid://bkljevpwukip6"
+run/main_scene="uid://drvlfedahabve"
 config/features=PackedStringArray("4.7", "Forward Plus")
+
+[audio]
+
+buses/default_bus_layout="uid://b7adjn361lvg8"
+
+[autoload]
+
+Music="*uid://hkghpu4vmlli"
+AudioSettings="*uid://qap8xrla614l"
 
 [display]
 

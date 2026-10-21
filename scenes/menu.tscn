@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://drvlfedahabve"]
+
+[ext_resource type="Script" uid="uid://8rfs2xhk74h6" path="res://scripts/menu.gd" id="1_con2f"]
+[ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://bwx0ydaspipqf" path="res://assets/fonts/DMSans_18pt-Bold.ttf" id="2_vjb58"]
+
+[node name="Menu" type="Control" unique_id=2045973807]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1843907386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.36078432, 1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=1066672237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/CenterContainer" unique_id=2035980488]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="Background/CenterContainer/VBoxContainer" unique_id=534753373]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 28
+text = "Bella's Day Out"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Background/CenterContainer/VBoxContainer" unique_id=251928697]
+layout_mode = 2
+text = "Play"
+
+[node name="SfxButton" type="CheckBox" parent="Background/CenterContainer/VBoxContainer" unique_id=1324122279]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_font_sizes/font_size = 24
+text = "Mute SFX"
+
+[node name="MusicButton" type="CheckBox" parent="Background/CenterContainer/VBoxContainer" unique_id=1172450023]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_font_sizes/font_size = 24
+text = "Mute Music"
+
+[node name="QuitButton" type="Button" parent="Background/CenterContainer/VBoxContainer" unique_id=147582316]
+layout_mode = 2
+text = "Quit"
