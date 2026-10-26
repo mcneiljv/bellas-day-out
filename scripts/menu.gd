@@ -2,12 +2,12 @@ extends Control
 
 const GAME_SCENE: String = "res://scenes/main.tscn"
 
+var can_quit: bool = not OS.has_feature("web") or OS.has_feature("ios")
+
 @onready var play_button: Button = $Background/CenterContainer/VBoxContainer/PlayButton
 @onready var sfx_button: Button = $Background/CenterContainer/VBoxContainer/SfxButton
 @onready var music_button: Button = $Background/CenterContainer/VBoxContainer/MusicButton
 @onready var quit_button: Button = $Background/CenterContainer/VBoxContainer/QuitButton
-
-var can_quit: bool = not OS.has_feature("web") or OS.has_feature("ios")
 
 
 # Called when the node enters the scene tree for the first time.
