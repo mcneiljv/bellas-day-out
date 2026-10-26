@@ -37,14 +37,76 @@ You need [Godot 4](https://godotengine.org/download) (built with 4.7; 4.3 or new
 
 ```bash
 git clone https://github.com/mcneiljv/bellas-day-out.git
+cd bellas-day-out
 ```
 
 1. Open Godot, click **Import**, and select the `project.godot` file in the cloned folder.
 2. Press **F5** to run. The game opens on the title screen (`menu.tscn`).
 
+The first time you open the project, Godot builds a local cache in a `.godot/` folder, so the initial load takes a moment. That folder is git-ignored and is safe to delete.
+
+## Development setup
+
+Playing and exporting the game only need Godot. If you want to change the code, or set the project up on a new machine for development, install the code-quality tools as well. They check formatting and style automatically every time you commit.
+
+### What you need
+
+| Tool | Why |
+| --- | --- |
+| [Godot 4](https://godotengine.org/download) (standard build) | Game engine, see [Run it locally](#run-it-locally) |
+| [Git](https://git-scm.com/downloads) | Version control |
+| [Python 3](https://www.python.org/downloads/) and [pipx](https://pipx.pypa.io/) | Runs the code-quality tools |
+| [Aseprite](https://www.aseprite.org/) (optional) | Only needed to edit the pixel art |
+
+Installing pipx:
+
+```bash
+# macOS
+brew install pipx && pipx ensurepath
+
+# Windows (PowerShell)
+py -m pip install --user pipx
+py -m pipx ensurepath
+
+# Debian/Ubuntu
+sudo apt install pipx && pipx ensurepath
+```
+
+Restart your terminal afterward so the `pipx` command is found.
+
+### Install the tools
+
+Run these once on each machine, from the cloned project folder:
+
+```bash
+pipx install "gdtoolkit==4.*"   # provides gdformat and gdlint
+pipx install pre-commit
+pre-commit install              # enables the commit hook for this clone
+```
+
+To confirm everything works, check the whole project once:
+
+```bash
+pre-commit run --all-files
+```
+
+### Day-to-day workflow
+
+- **On commit:** a hook runs `gdformat` and `gdlint` on the staged `.gd` files. If `gdformat` changes a file, run `git add` on it and commit again. If `gdlint` reports errors, fix them and commit again.
+- **Manual check:** `gdformat scripts/ && gdlint scripts/`
+- **Skip the hook once:** `git commit --no-verify -m "message"`
+- **On push:** GitHub Actions (`.github/workflows/gdscript.yml`) re-runs the same checks.
+- **Rules:** lint settings live in `.gdlintrc`, and the hook setup lives in `.pre-commit-config.yaml`. Third-party code in `addons/` is excluded from both.
+
+### Troubleshooting
+
+- **`gdformat`, `gdlint`, or `pre-commit`: command not found.** Run `pipx ensurepath`, then restart your terminal.
+- **Parse errors on newer GDScript syntax.** Run `pipx upgrade gdtoolkit`.
+- **The hook doesn't run on commit.** Run `pre-commit install` again in this clone. Git hooks aren't copied when you clone a repo, so every clone needs this once.
+
 ## How it works
 
-The game is small enough to read in one sitting. The main pieces:
+The game is small enough to read in one sitting. The GDScript files live in `scripts/`. The main pieces:
 
 | File | Role |
 | --- | --- |
