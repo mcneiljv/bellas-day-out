@@ -153,4 +153,5 @@ Browsers block audio until the player interacts with the page, so the music star
 
 ## License
 
-[Choose a license, for example MIT, and add a `LICENSE` file.]
+The source code is released under the [MIT License](LICENSE).
+Art, music, and other third-party assets may have their own terms, so see [Credits](#credits).
