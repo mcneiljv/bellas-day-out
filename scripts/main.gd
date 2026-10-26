@@ -38,6 +38,7 @@ var layer_speeds: Dictionary = {}
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var back_button: Button = $UI/BackButton
 
+
 func _ready() -> void:
 	player.crashed.connect(game_over)
 	message_label.text = "Tap or press Space to start"
@@ -46,6 +47,7 @@ func _ready() -> void:
 	for layer: Parallax2D in get_tree().get_nodes_in_group("parallax_layers"):
 		layer_speeds[layer] = layer.autoscroll
 		layer.autoscroll = Vector2.ZERO
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -62,6 +64,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if can_restart:
 				get_tree().reload_current_scene()
 
+
 func start_game() -> void:
 	state = State.PLAYING
 	message_label.hide()
@@ -70,6 +73,7 @@ func start_game() -> void:
 	spawn_pipe()
 	spawn_timer.start()
 	set_background_scroll(true)
+
 
 func game_over() -> void:
 	if state == State.GAME_OVER:
@@ -84,10 +88,12 @@ func game_over() -> void:
 	message_label.show()
 	await get_tree().create_timer(0.6).timeout
 	can_restart = true
-	
+
+
 func go_to_menu() -> void:
 	get_tree().change_scene_to_file(MENU_SCENE)
-	
+
+
 func _on_pipe_scored() -> void:
 	if state != State.PLAYING:
 		return
@@ -96,14 +102,17 @@ func _on_pipe_scored() -> void:
 	spawn_timer.wait_time = maxf(MIN_INTERVAL, BASE_INTERVAL - score * 0.02)
 	update_background_scroll_speed()
 
+
 func set_background_scroll(on: bool) -> void:
 	for layer: Parallax2D in layer_speeds:
 		layer.autoscroll = layer_speeds[layer] if on else Vector2.ZERO
-		
+
+
 func update_background_scroll_speed() -> void:
 	var factor := minf(BASE_SPEED + score * 4.0, MAX_SPEED) / BASE_SPEED
 	for layer: Parallax2D in layer_speeds:
 		layer.autoscroll = layer_speeds[layer] * factor
+
 
 func spawn_pipe() -> void:
 	var pipe: Pipe = PIPE_SCENE.instantiate()

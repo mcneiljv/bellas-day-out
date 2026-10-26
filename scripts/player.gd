@@ -9,10 +9,10 @@ signal crashed
 @export var death_hop_velocity: float = -300.0
 @export var death_spin_time: float = 0.8
 
-const OFFSCREEN_MARGIN: float= 46.0    # extra pixels so the bird is fully hidden before vanishing
+const OFFSCREEN_MARGIN: float = 46.0  # extra pixels so the bird is fully hidden before vanishing
 const TILT_SPEED_SCALE: float = 900.0  # vertical speed (px/s) that equals 1 radian of tilt
-const MAX_TILT_UP: float = -0.5        # radians (about -29°): nose-up limit
-const MAX_TILT_DOWN: float = 1.0       # radians (about 57°): nose-down limit
+const MAX_TILT_UP: float = -0.5  # radians (about -29°): nose-up limit
+const MAX_TILT_DOWN: float = 1.0  # radians (about 57°): nose-down limit
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionPolygon2D = $CollisionPolygon2D
@@ -22,13 +22,16 @@ const MAX_TILT_DOWN: float = 1.0       # radians (about 57°): nose-down limit
 var started := false
 var alive := true
 
+
 func start() -> void:
 	started = true
+
 
 func flap() -> void:
 	if alive:
 		velocity.y = flap_velocity
 		jump_sound.play()
+
 
 func die() -> void:
 	if not alive:
@@ -40,7 +43,8 @@ func die() -> void:
 	velocity.y = death_hop_velocity
 
 	var tween := create_tween()
-	tween.tween_property(self, "rotation", TAU, death_spin_time)	
+	tween.tween_property(self, "rotation", TAU, death_spin_time)
+
 
 func _physics_process(delta: float) -> void:
 	if not started:
@@ -48,7 +52,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity.y = minf(velocity.y + gravity * delta, max_fall_speed)
 	move_and_slide()
-	
+
 	sprite.rotation = clampf(velocity.y / TILT_SPEED_SCALE, MAX_TILT_UP, MAX_TILT_DOWN)
 	collision_shape.rotation = clampf(velocity.y / TILT_SPEED_SCALE, MAX_TILT_UP, MAX_TILT_DOWN)
 
