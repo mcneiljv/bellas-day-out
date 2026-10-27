@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_yqeox"]
 [ext_resource type="FontFile" uid="uid://bwx0ydaspipqf" path="res://assets/fonts/DMSans_18pt-Bold.ttf" id="2_vjb58"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+
 [node name="Menu" type="Control" unique_id=2045973807]
 layout_mode = 3
 anchors_preset = 15
@@ -46,6 +48,7 @@ horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="Background/CenterContainer/VBoxContainer" unique_id=251928697]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vjb58")
 text = "Play"
 
 [node name="SfxButton" type="CheckBox" parent="Background/CenterContainer/VBoxContainer" unique_id=1324122279]
@@ -66,4 +69,6 @@ text = "Mute Music"
 
 [node name="QuitButton" type="Button" parent="Background/CenterContainer/VBoxContainer" unique_id=147582316]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ytvr")
 text = "Quit"

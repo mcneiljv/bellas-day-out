@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ln17rl6ccytf"]
+
+[ext_resource type="Texture2D" uid="uid://djpaogehxxisb" path="res://assets/parallax-tree-front.png" id="1_b20bm"]
+
+[node name="FrontTrees" type="Parallax2D" unique_id=695329257 groups=["parallax_layers"]]
+repeat_size = Vector2(960, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1099415721]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("1_b20bm")
+centered = false
+
+[node name="Sprite2D Flipped" type="Sprite2D" parent="." unique_id=1822027545]
+position = Vector2(480, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("1_b20bm")
+centered = false

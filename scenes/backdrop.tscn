@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dcn85bic47wrx"]
+
+[ext_resource type="Texture2D" uid="uid://c1r1flwqpt8ey" path="res://assets/parallax-skybox.png" id="1_pxm0e"]
+[ext_resource type="Texture2D" uid="uid://dgtt1q0qbmwsj" path="res://assets/parallax-mountain-back.png" id="2_n2yqo"]
+[ext_resource type="Texture2D" uid="uid://fh0a0e2cplde" path="res://assets/parallax-forest-mid.png" id="3_nfqiq"]
+[ext_resource type="Texture2D" uid="uid://bfcqykb7uttoo" path="res://assets/parallax-forest-low.png" id="4_hurso"]
+
+[node name="Backdrop" type="Node2D" unique_id=2034061779]
+
+[node name="Skybox" type="Parallax2D" parent="." unique_id=95809281 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skybox" unique_id=1633050551]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("1_pxm0e")
+centered = false
+
+[node name="Mountains" type="Parallax2D" parent="." unique_id=1962467281 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountains" unique_id=1876115720]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("2_n2yqo")
+centered = false
+
+[node name="MidForest" type="Parallax2D" parent="." unique_id=2125139472 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-22, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MidForest" unique_id=1908442869]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("3_nfqiq")
+centered = false
+
+[node name="LowForest" type="Parallax2D" parent="." unique_id=1708875807 groups=["parallax_layers"]]
+repeat_size = Vector2(480, 0)
+autoscroll = Vector2(-60, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="LowForest" unique_id=1924093494]
+position = Vector2(0, -17.6)
+scale = Vector2(0.253, 0.253)
+texture = ExtResource("4_hurso")
+centered = false
