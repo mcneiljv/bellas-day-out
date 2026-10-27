@@ -1,0 +1,83 @@
+# .gdlintrc - reusable gdlint baseline for Godot 4 projects
+#
+# Setup: place this file in the project root and run gdlint from there.
+# These values are the gdtoolkit defaults, which follow the official GDScript
+# style guide. Only change a value when you have a reason, and note why here.
+#
+# Rules that are set to "null" below take no options. They are always on
+# unless you list them under "disable".
+
+# ---------------------------------------------------------------------------
+# Script layout: the order gdlint expects declarations in (top to bottom).
+# Reorder or remove entries to match your own convention.
+# ---------------------------------------------------------------------------
+class-definitions-order:
+- tools
+- classnames
+- extends
+- docstrings
+- signals
+- enums
+- consts
+- staticvars
+- exports
+- pubvars
+- prvvars
+- onreadypubvars
+- onreadyprvvars
+- others
+
+# ---------------------------------------------------------------------------
+# Naming rules (regular expressions)
+# ---------------------------------------------------------------------------
+class-name: ([A-Z][a-z0-9]*)+                       # PascalCase
+sub-class-name: _?([A-Z][a-z0-9]*)+                 # PascalCase, optional _ prefix
+enum-name: ([A-Z][a-z0-9]*)+                        # PascalCase
+enum-element-name: '[A-Z][A-Z0-9]*(_[A-Z0-9]+)*'    # UPPER_SNAKE_CASE
+constant-name: _?[A-Z][A-Z0-9]*(_[A-Z0-9]+)*        # UPPER_SNAKE_CASE
+load-constant-name: (([A-Z][a-z0-9]*)+|_?[A-Z][A-Z0-9]*(_[A-Z0-9]+)*)
+signal-name: '[a-z][a-z0-9]*(_[a-z0-9]+)*'          # snake_case
+class-variable-name: _?[a-z][a-z0-9]*(_[a-z0-9]+)*  # snake_case, optional _ prefix
+class-load-variable-name: (([A-Z][a-z0-9]*)+|_?[a-z][a-z0-9]*(_[a-z0-9]+)*)
+function-name: (_on_([A-Z][a-z0-9]*)+(_[a-z0-9]+)*|_?[a-z][a-z0-9]*(_[a-z0-9]+)*)  # allows _on_Node_signal handlers
+function-argument-name: _?[a-z][a-z0-9]*(_[a-z0-9]+)*
+function-variable-name: '[a-z][a-z0-9]*(_[a-z0-9]+)*'
+function-preload-variable-name: ([A-Z][a-z0-9]*)+
+loop-variable-name: _?[a-z][a-z0-9]*(_[a-z0-9]+)*
+
+# ---------------------------------------------------------------------------
+# Size and complexity limits
+# ---------------------------------------------------------------------------
+max-line-length: 100        # matches gdformat's default
+max-file-lines: 1000
+max-public-methods: 20
+max-returns: 6
+function-arguments-number: 10
+tab-characters: 1           # one tab per indent level
+
+# ---------------------------------------------------------------------------
+# Always-on checks (no options)
+# ---------------------------------------------------------------------------
+comparison-with-itself: null
+duplicated-load: null
+expression-not-assigned: null
+mixed-tabs-and-spaces: null
+no-elif-return: null
+no-else-return: null
+trailing-whitespace: null
+unnecessary-pass: null
+unused-argument: null
+
+# ---------------------------------------------------------------------------
+# Directories gdlint should skip (third-party and generated code)
+# ---------------------------------------------------------------------------
+excluded_directories: !!set
+  .git: null
+  .godot: null
+  addons: null
+
+# ---------------------------------------------------------------------------
+# Rules to turn off entirely, e.g. disable: [max-public-methods, unused-argument]
+# For a single line, use a "# gdlint: ignore=rule-name" comment instead.
+# ---------------------------------------------------------------------------
+disable: []
