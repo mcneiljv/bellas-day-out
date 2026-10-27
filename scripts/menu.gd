@@ -4,10 +4,10 @@ const GAME_SCENE: String = "res://scenes/main.tscn"
 
 var can_quit: bool = not OS.has_feature("web") or OS.has_feature("ios")
 
-@onready var play_button: Button = $Background/CenterContainer/VBoxContainer/PlayButton
-@onready var sfx_button: Button = $Background/CenterContainer/VBoxContainer/SfxButton
-@onready var music_button: Button = $Background/CenterContainer/VBoxContainer/MusicButton
-@onready var quit_button: Button = $Background/CenterContainer/VBoxContainer/QuitButton
+@onready var play_button: Button = $ButtonContainer/PlayButton
+@onready var sfx_button: Button = $ButtonContainer/ToggleContainer/SfxButton
+@onready var music_button: Button = $ButtonContainer/ToggleContainer/MusicButton
+@onready var quit_button: Button = $ButtonContainer/QuitButton
 
 
 # Called when the node enters the scene tree for the first time.
