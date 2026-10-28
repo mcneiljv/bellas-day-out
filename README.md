@@ -148,8 +148,7 @@ Browsers block audio until the player interacts with the page, so the music star
 - Forest parallax background: [Parallax Forest by Bongseng](https://bongseng.itch.io/parallax-forest-desert-sky-moon).
 - Bone and character art by me.
 - Sound effects: Created by me with [jsfxr](https://sfxr.me/).
-<!-- TODO: Add music creds -->
-- Music: [track, artist, and license].
+- Music: ["Nintendo-esque Menu Music" by Bonky](https://opengameart.org/content/nintendo-esque-menu-music).
 
 ## License
 
