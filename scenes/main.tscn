@@ -88,5 +88,4 @@ offset_bottom = 60.0
 focus_mode = 0
 theme = ExtResource("7_o6xl0")
 theme_override_fonts/font = ExtResource("9_choun")
-theme_override_font_sizes/font_size = 20
 text = "Menu"
