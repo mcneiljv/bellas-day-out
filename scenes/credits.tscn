@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://mmg7eegwdl20"]
 
 [ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://dtfvy5ruoa7l8" path="res://scripts/credits.gd" id="1_2ckv8"]
 
 [node name="Credits" type="Node2D" unique_id=5556356]
+script = ExtResource("1_2ckv8")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=559495874]
 anchors_preset = 15
@@ -29,3 +31,17 @@ theme_override_font_sizes/font_size = 26
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=804238436]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 217.5
+offset_top = 800.0
+offset_right = 262.5
+offset_bottom = 831.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"

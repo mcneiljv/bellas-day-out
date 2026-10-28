@@ -178,11 +178,17 @@ text = "Quit"
 
 [node name="Credit" type="Label" parent="." unique_id=1046935115]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 800.0
-offset_bottom = 826.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -54.0
+offset_right = 220.0
+offset_bottom = -28.0
 grow_horizontal = 2
+grow_vertical = 0
 offset_transform_enabled = true
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
