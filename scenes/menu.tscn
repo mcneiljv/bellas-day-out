@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ln17rl6ccytf" path="res://scenes/front_trees.tscn" id="3_con2f"]
 [ext_resource type="PackedScene" uid="uid://dcn85bic47wrx" path="res://scenes/backdrop.tscn" id="3_g3eks"]
 [ext_resource type="Texture2D" uid="uid://bul6em50h1ws4" path="res://assets/dachshund.png" id="5_4ytvr"]
-[ext_resource type="Texture2D" uid="uid://cdxh3li15od6" path="res://assets/sound.svg" id="7_v86rl"]
+[ext_resource type="Texture2D" uid="uid://8queurl6fdgg" path="res://assets/icons/sound.svg" id="7_13sgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
 bg_color = Color(0.95, 0.72358334, 0.42749998, 1)
@@ -154,8 +154,7 @@ layout_mode = 2
 theme_type_variation = &"MuteButton"
 theme_override_constants/icon_max_width = 20
 toggle_mode = true
-text = "Mute SFX"
-icon = ExtResource("7_v86rl")
+icon = ExtResource("7_13sgg")
 
 [node name="MusicButton" type="Button" parent="ButtonContainer/ToggleContainer" unique_id=773622051]
 custom_minimum_size = Vector2(154, 56)
@@ -164,7 +163,7 @@ theme_type_variation = &"MuteButton"
 theme_override_constants/icon_max_width = 20
 toggle_mode = true
 text = "Mute Music"
-icon = ExtResource("7_v86rl")
+icon = ExtResource("7_13sgg")
 
 [node name="QuitButton" type="Button" parent="ButtonContainer" unique_id=1769091957]
 layout_mode = 2
