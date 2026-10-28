@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mmg7eegwdl20"]
+
+[node name="Credits" type="Node2D" unique_id=5556356]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=559495874]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 480.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23534763, 0.62736505, 0.35800132, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=909803589]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Blue ah boo dee ah boo dah"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
