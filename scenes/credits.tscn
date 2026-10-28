@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_0bpdh"]
 [ext_resource type="Script" uid="uid://dtfvy5ruoa7l8" path="res://scripts/credits.gd" id="1_2ckv8"]
+[ext_resource type="Theme" uid="uid://yd364nh3upn8" path="res://themes/button_theme.tres" id="3_0ctdu"]
 
 [node name="Credits" type="Node2D" unique_id=5556356]
 script = ExtResource("1_2ckv8")
@@ -33,15 +34,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackButton" type="Button" parent="." unique_id=804238436]
+custom_minimum_size = Vector2(0, 56)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 217.5
-offset_top = 800.0
-offset_right = 262.5
-offset_bottom = 831.0
+offset_left = 160.0
+offset_top = 771.0
+offset_right = 320.0
+offset_bottom = 827.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_0ctdu")
 text = "Back"
