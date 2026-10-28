@@ -154,6 +154,7 @@ layout_mode = 2
 theme_type_variation = &"MuteButton"
 theme_override_constants/icon_max_width = 20
 toggle_mode = true
+text = "SFX: On"
 icon = ExtResource("7_13sgg")
 
 [node name="MusicButton" type="Button" parent="ButtonContainer/ToggleContainer" unique_id=773622051]
@@ -162,9 +163,26 @@ layout_mode = 2
 theme_type_variation = &"MuteButton"
 theme_override_constants/icon_max_width = 20
 toggle_mode = true
-text = "Mute Music"
+text = "Music: On"
 icon = ExtResource("7_13sgg")
 
 [node name="QuitButton" type="Button" parent="ButtonContainer" unique_id=1769091957]
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 text = "Quit"
+
+[node name="Credit" type="Label" parent="." unique_id=1046935115]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 800.0
+offset_bottom = 826.0
+grow_horizontal = 2
+offset_transform_enabled = true
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 11
+text = "TODO: add more dog · © 2026 Jamie McNeil"
+horizontal_alignment = 1
+vertical_alignment = 1
