@@ -6,8 +6,14 @@ const MENU_SCENE = "res://scenes/menu.tscn"
 
 
 func _ready() -> void:
-	back_button.pressed.connect(_back_button_pressed)
+	back_button.pressed.connect(_go_to_menu)
 
 
-func _back_button_pressed():
+func _go_to_menu():
 	get_tree().change_scene_to_file(MENU_SCENE)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_go_to_menu()
+		return
