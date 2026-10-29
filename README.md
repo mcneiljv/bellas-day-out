@@ -149,6 +149,7 @@ Browsers block audio until the player interacts with the page, so the music star
 - Bone and character art by me.
 - Sound effects: Created by me with [jsfxr](https://sfxr.me/).
 - Music: ["Nintendo-esque Menu Music" by Bonky](https://opengameart.org/content/nintendo-esque-menu-music).
+- Icons: [Pixel Interface Icons by Abdul Hakim](https://www.svgrepo.com/collection/pixel-interface-icons/)
 
 ## License
 
