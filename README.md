@@ -28,7 +28,7 @@ Inspired by Bella, my dachshund, who proves every day that a very long dog with 
 | **Menu** button or Esc (in game) | Return to the title screen |
 | Esc (on the title screen) | Quit the game (desktop only) |
 
-On the title screen, use **Play** to start and the **Mute SFX** and **Mute Music** checkboxes to silence either one. The Quit button is hidden in the web version, since a browser tab can't be closed by the game.
+On the title screen, use **Play** to start and the **SFX** and **Music** toggles to adjust either one. The Quit button is hidden in the web version, since a browser tab can't be closed by the game.
 
 ## Run it locally
 

@@ -16,7 +16,7 @@ script = ExtResource("1_0xm2m")
 
 [node name="Backdrop" parent="." unique_id=2034061779 instance=ExtResource("2_tefeu")]
 
-[node name="Pipes" type="Node2D" parent="." unique_id=156060983]
+[node name="Bones" type="Node2D" parent="." unique_id=156060983]
 
 [node name="FrontTrees" parent="." unique_id=695329257 instance=ExtResource("3_tefeu")]
 

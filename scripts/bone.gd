@@ -1,4 +1,4 @@
-class_name Pipe
+class_name Bone
 extends Node2D
 
 signal hit
@@ -8,9 +8,9 @@ signal scored
 
 
 func _ready() -> void:
-	add_to_group("pipes")
-	$TopPipe.body_entered.connect(_on_hazard_body_entered)
-	$BottomPipe.body_entered.connect(_on_hazard_body_entered)
+	add_to_group("bones")
+	$TopBone.body_entered.connect(_on_hazard_body_entered)
+	$BottomBone.body_entered.connect(_on_hazard_body_entered)
 	$ScoreZone.body_entered.connect(_on_score_zone_body_entered)
 
 

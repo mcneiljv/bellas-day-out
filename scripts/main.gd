@@ -2,9 +2,9 @@ extends Node2D
 
 ## The current phase of the game loop.
 enum State {
-	## Waiting for the first tap. The player hovers and no pipes spawn.
+	## Waiting for the first tap. The player hovers and no bones spawn.
 	READY,
-	## The player is flying, pipes are spawning, and taps flap.
+	## The player is flying, bones are spawning, and taps hop.
 	PLAYING,
 	## The run has ended. Taps restart the game once `can_restart` is true.
 	GAME_OVER,
@@ -18,8 +18,8 @@ const MAX_SPEED: float = 360.0
 const BASE_INTERVAL: float = 1.6
 const MIN_INTERVAL: float = 1.0
 
-const PIPE_SCENE: PackedScene = preload("res://scenes/pipe.tscn")
-const PIPE_SPAWN_X: float = 540.0
+const BONE_SCENE: PackedScene = preload("res://scenes/bone.tscn")
+const BONE_SPAWN_X: float = 540.0
 const GAP_CENTER_MIN: float = 180.0
 const GAP_CENTER_MAX: float = 616.0
 
@@ -34,7 +34,7 @@ var layer_speeds: Dictionary = {}
 @onready var game_over_label: Label = $UI/GameOverLabel
 @onready var message_label: Label = $UI/MessageLabel
 @onready var score_label: Label = $UI/ScoreLabel
-@onready var pipes: Node2D = $Pipes
+@onready var bones: Node2D = $Bones
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var back_button: Button = $UI/BackButton
 
@@ -42,7 +42,7 @@ var layer_speeds: Dictionary = {}
 func _ready() -> void:
 	player.crashed.connect(game_over)
 	message_label.text = "Tap or press Space to start"
-	spawn_timer.timeout.connect(spawn_pipe)
+	spawn_timer.timeout.connect(spawn_bone)
 	back_button.pressed.connect(go_to_menu)
 	for layer: Parallax2D in get_tree().get_nodes_in_group("parallax_layers"):
 		layer_speeds[layer] = layer.autoscroll
@@ -70,7 +70,7 @@ func start_game() -> void:
 	message_label.hide()
 	player.start()
 	player.flap()
-	spawn_pipe()
+	spawn_bone()
 	spawn_timer.start()
 	set_background_scroll(true)
 
@@ -80,7 +80,7 @@ func game_over() -> void:
 		return
 	state = State.GAME_OVER
 	spawn_timer.stop()
-	get_tree().call_group("pipes", "set_physics_process", false)
+	get_tree().call_group("bones", "set_physics_process", false)
 	set_background_scroll(false)
 	player.die()
 	game_over_label.text = "Game Over"
@@ -94,7 +94,7 @@ func go_to_menu() -> void:
 	get_tree().change_scene_to_file(MENU_SCENE)
 
 
-func _on_pipe_scored() -> void:
+func _on_bone_scored() -> void:
 	if state != State.PLAYING:
 		return
 	score += 1
@@ -114,10 +114,10 @@ func update_background_scroll_speed() -> void:
 		layer.autoscroll = layer_speeds[layer] * factor
 
 
-func spawn_pipe() -> void:
-	var pipe: Pipe = PIPE_SCENE.instantiate()
-	pipe.position = Vector2(PIPE_SPAWN_X, randf_range(GAP_CENTER_MIN, GAP_CENTER_MAX))
-	pipe.speed = minf(BASE_SPEED + score * 4.0, MAX_SPEED)
-	pipe.hit.connect(game_over)
-	pipe.scored.connect(_on_pipe_scored)
-	pipes.add_child(pipe)
+func spawn_bone() -> void:
+	var bone: Bone = BONE_SCENE.instantiate()
+	bone.position = Vector2(BONE_SPAWN_X, randf_range(GAP_CENTER_MIN, GAP_CENTER_MAX))
+	bone.speed = minf(BASE_SPEED + score * 4.0, MAX_SPEED)
+	bone.hit.connect(game_over)
+	bone.scored.connect(_on_bone_scored)
+	bones.add_child(bone)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b2f82kp142wbd"]
 
-[ext_resource type="Script" uid="uid://cu13t44hu2sb8" path="res://scripts/pipe.gd" id="1_8x3ej"]
-[ext_resource type="Texture2D" uid="uid://c8ql7s8ckidhd" path="res://assets/bone.png" id="2_arpqm"]
+[ext_resource type="Script" uid="uid://cu13t44hu2sb8" path="res://scripts/bone.gd" id="1_f60gj"]
+[ext_resource type="Texture2D" uid="uid://c8ql7s8ckidhd" path="res://assets/bone.png" id="2_kq1tw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slirq"]
 size = Vector2(80, 700)
@@ -9,36 +9,36 @@ size = Vector2(80, 700)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jitf8"]
 size = Vector2(10, 200)
 
-[node name="Pipes" type="Node2D" unique_id=44458212]
-script = ExtResource("1_8x3ej")
+[node name="Bones" type="Node2D" unique_id=44458212]
+script = ExtResource("1_f60gj")
 
-[node name="TopPipe" type="Area2D" parent="." unique_id=341178800]
+[node name="TopBone" type="Area2D" parent="." unique_id=341178800]
 position = Vector2(0, -450)
 collision_layer = 0
 collision_mask = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="TopPipe" unique_id=588712475]
+[node name="Sprite2D" type="Sprite2D" parent="TopBone" unique_id=588712475]
 position = Vector2(0, 20)
 rotation = 3.1415927
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_arpqm")
+texture = ExtResource("2_kq1tw")
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe" unique_id=487673497]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBone" unique_id=487673497]
 visible = false
 shape = SubResource("RectangleShape2D_slirq")
 
-[node name="BottomPipe" type="Area2D" parent="." unique_id=1404588167]
+[node name="BottomBone" type="Area2D" parent="." unique_id=1404588167]
 position = Vector2(0, 450)
 collision_layer = 0
 collision_mask = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="BottomPipe" unique_id=262882779]
+[node name="Sprite2D" type="Sprite2D" parent="BottomBone" unique_id=262882779]
 position = Vector2(0, -20)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_arpqm")
+texture = ExtResource("2_kq1tw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe" unique_id=913553640]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBone" unique_id=913553640]
 visible = false
 shape = SubResource("RectangleShape2D_slirq")
 
