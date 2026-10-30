@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://mmg7eegwdl20"]
+
+[ext_resource type="FontFile" uid="uid://clnqg7d6f62fh" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://dtfvy5ruoa7l8" path="res://scripts/credits.gd" id="1_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://qdvii7elbal" path="res://assets/bella-circle.png" id="2_mah5v"]
+[ext_resource type="Theme" uid="uid://yd364nh3upn8" path="res://themes/button_theme.tres" id="3_0ctdu"]
+[ext_resource type="FontFile" uid="uid://bwx0ydaspipqf" path="res://assets/fonts/DMSans_18pt-Bold.ttf" id="4_2fbfq"]
+[ext_resource type="FontFile" uid="uid://bk6ti0ja7aty" path="res://assets/fonts/DMSans_18pt-Regular.ttf" id="4_8gwij"]
+
+[node name="Credits" type="Node2D" unique_id=5556356]
+script = ExtResource("1_2ckv8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=559495874]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 480.0
+offset_bottom = 854.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.14509805, 0.15686275, 1)
+
+[node name="BellaPhoto" type="TextureRect" parent="." unique_id=1481390877]
+offset_left = 163.0
+offset_top = 581.0
+offset_right = 313.0
+offset_bottom = 731.0
+texture = ExtResource("2_mah5v")
+expand_mode = 1
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1131049649]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_right = 480.0
+offset_bottom = 126.0
+grow_horizontal = 2
+offset_transform_enabled = true
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 26
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=471761214]
+offset_left = 15.0
+offset_top = 140.0
+offset_right = 465.0
+offset_bottom = 593.0
+theme_override_fonts/normal_font = ExtResource("4_8gwij")
+theme_override_fonts/bold_font = ExtResource("4_2fbfq")
+bbcode_enabled = true
+text = "[b]Created By[/b]
+Jamie McNeil
+
+[b]Parallax Forest Background[/b]
+Bongseng
+
+[b]Music[/b]
+\"Nintendo-esque Menu Music\" by Bonky
+
+[b]Sound Effects[/b]
+jsfxr
+
+[b]Icons[/b]
+Pixel Interface Icons by Abdul Hakim
+
+[b]Made With Love Using Godot Engine[/b]
+License: https://godotengine.org/license/
+
+[b]Starring[/b]
+Bella"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=804238436]
+custom_minimum_size = Vector2(0, 56)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = 771.0
+offset_right = 320.0
+offset_bottom = 827.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_0ctdu")
+text = "Back"

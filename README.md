@@ -4,11 +4,9 @@ A one-button, Flappy Bird-style arcade game built with Godot 4 and GDScript. Hel
 
 Inspired by Bella, my dachshund, who proves every day that a very long dog with very short legs can still reach for the sky. 🐕✨
 
-<!--TODO: Add itch.io link -->
-**[Play it in your browser on itch.io](https://YOUR-USERNAME.itch.io/YOUR-GAME)**
+**[Play it in your browser on itch.io](https://jamiemcneil.itch.io/bellas-day-out)**
 
-<!--TODO: Add gameplay screenshot -->
-![Gameplay screenshot](docs/screenshot.png)
+![Gameplay screenshot](assets/screen-recording.gif)
 
 ## Features
 
@@ -29,7 +27,7 @@ Inspired by Bella, my dachshund, who proves every day that a very long dog with 
 | **Menu** button or Esc (in game) | Return to the title screen |
 | Esc (on the title screen) | Quit the game (desktop only) |
 
-On the title screen, use **Play** to start and the **Mute SFX** and **Mute Music** checkboxes to silence either one. The Quit button is hidden in the web version, since a browser tab can't be closed by the game.
+On the title screen, use **Play** to start and the **SFX** and **Music** toggles to adjust either one. The Quit button is hidden in the web version, since a browser tab can't be closed by the game.
 
 ## Run it locally
 
@@ -110,17 +108,18 @@ The game is small enough to read in one sitting. The GDScript files live in `scr
 
 | File | Role |
 | --- | --- |
-| `menu.gd` | Title screen. Starts the game, hosts the audio toggles, and handles quitting. |
-| `main.gd` | Game loop. Tracks the state (ready, playing, game over), handles input, spawns bones on a timer, keeps score, and returns to the menu. |
-| `player.gd` | Bella, a `CharacterBody2D`. Applies gravity, handles hopping, emits `crashed` on the ground, and plays the death spin. |
-| `pipe.gd` | A pipe pair. Scrolls left, frees itself off-screen, and emits `hit` and `scored` signals. |
 | `audio_settings.gd` | Autoload named `GameSettings`. Mutes the `SFX` and `Music` audio buses and saves the choices. |
+| `bone.gd` | A bone pair. Scrolls left, frees itself off-screen, and emits `hit` and `scored` signals. |
+| `credits.tscn` | Credits menu for all assets. Includes back navigation. |
+| `main.gd` | Game loop. Tracks the state (ready, playing, game over), handles input, spawns bones on a timer, keeps score, and returns to the menu. |
+| `menu.gd` | Title screen. Starts the game, hosts the audio toggles, and handles quitting. |
 | `music_player.tscn` | Autoload named `MusicPlayer`. Plays the looping music so it carries through restarts and menu visits. |
+| `player.gd` | Bella, a `CharacterBody2D`. Applies gravity, handles hopping, emits `crashed` on the ground, and plays the death spin. |
 
 A few design choices worth knowing:
 
 - **Signals up, calls down.** Bella and the bones report events through signals, and `main.gd` decides what those events mean.
-- **Bones are `Area2D`s, the ground is solid.** Touching a pipe ends the run through `body_entered`, while Bella lands on the ground through `move_and_slide()` and `is_on_floor()`.
+- **Bones are `Area2D`s, the ground is solid.** Touching a bone ends the run through `body_entered`, while Bella lands on the ground through `move_and_slide()` and `is_on_floor()`.
 - **Collision layers.** The ground sits on layer 1 and the dachshund on layer 2. The bones only scan layer 2, so they react to the dachshund and ignore the ground.
 - **Gameplay input uses `_unhandled_input`.** UI buttons consume their own clicks first, so pressing Menu doesn't also make the dachshund hop.
 - **Audio buses.** Sound effects play on an `SFX` bus and music on a `Music` bus, so muting either is a single toggle with no per-sound code. The bus layout lives in `default_bus_layout.tres`.
@@ -148,8 +147,8 @@ Browsers block audio until the player interacts with the page, so the music star
 - Forest parallax background: [Parallax Forest by Bongseng](https://bongseng.itch.io/parallax-forest-desert-sky-moon).
 - Bone and character art by me.
 - Sound effects: Created by me with [jsfxr](https://sfxr.me/).
-<!-- TODO: Add music creds -->
-- Music: [track, artist, and license].
+- Music: ["Nintendo-esque Menu Music" by Bonky](https://opengameart.org/content/nintendo-esque-menu-music).
+- Icons: [Pixel Interface Icons by Abdul Hakim](https://www.svgrepo.com/collection/pixel-interface-icons/)
 
 ## License
 
