@@ -7,8 +7,7 @@ Inspired by Bella, my dachshund, who proves every day that a very long dog with 
 <!--TODO: Add itch.io link -->
 **[Play it in your browser on itch.io](https://YOUR-USERNAME.itch.io/YOUR-GAME)**
 
-<!--TODO: Add gameplay screenshot -->
-![Gameplay screenshot](docs/screenshot.png)
+![Gameplay screenshot](assets/screen-recording.gif)
 
 ## Features
 
